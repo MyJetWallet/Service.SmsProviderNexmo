@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MyJetWallet.Service.SmsSender.Client" Version="1.1.12" />
+    <PackageReference Include="MyJetWallet.Service.SmsSender.Client" Version="1.1.13" />
     <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.1" />
   </ItemGroup>
 
