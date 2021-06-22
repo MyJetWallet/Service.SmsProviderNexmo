@@ -35,7 +35,8 @@ namespace Service.SmsProviderNexmo.Services
                     .Replace("(", "")
                     .Replace(")", ""),
                 From = _settingsModel.SenderCompanyName,
-                Text = request.Body
+                Text = request.Body,
+                Type = SmsType.unicode
             });
 
             if (response.Messages.Any(msg => msg.StatusCode != SmsStatusCode.Success))
