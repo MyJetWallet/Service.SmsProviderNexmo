@@ -22,11 +22,7 @@ namespace Service.SmsProviderNexmo
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCodeFirstGrpc(options =>
-            {
-                options.Interceptors.Add<PrometheusMetricsInterceptor>();
-                options.BindMetricsInterceptors();
-            });
+            services.BindCodeFirstGrpc();
 
             services.AddHostedService<ApplicationLifetimeManager>();
 
