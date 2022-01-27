@@ -22,5 +22,8 @@ namespace Service.SmsProviderNexmo.Settings
 
         [YamlProperty("SmsProviderNexmo.ElkLogs")]
         public LogElkSettings ElkLogs { get; set; }
+        
+        [YamlProperty("SmsProviderNexmo.SpotServiceBusHostPort")]
+        public string SpotServiceBusHostPort { get; set; }
     }
 }
