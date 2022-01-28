@@ -2,7 +2,9 @@
 using MyJetWallet.Sdk.ServiceBus;
 using MyServiceBus.Abstractions;
 using Service.SmsProviderNexmo.Domain.Models;
+using Service.SmsProviderNexmo.Jobs;
 using Service.SmsProviderNexmo.Services;
+using Service.SmsSender.Client;
 
 namespace Service.SmsProviderNexmo.Modules
 {
@@ -22,6 +24,14 @@ namespace Service.SmsProviderNexmo.Modules
             
             builder.RegisterMyServiceBusSubscriberSingle<NexmoSmsDeliveryReportMessage>(serviceBus,
                 NexmoSmsDeliveryReportMessage.TopicName, queue, TopicQueueType.PermanentWithSingleConnection);
+            
+            builder.RegisterNexmoReportMessagePublisher(serviceBus);
+            
+            
+            builder
+                .RegisterType<SmsDeliveryReportJob>()
+                .SingleInstance()
+                .AutoActivate();
         }
     }
 }
