@@ -42,11 +42,11 @@ namespace Service.SmsProviderNexmo.Services
             if (response.Messages.Any(msg => msg.StatusCode != SmsStatusCode.Success))
             {
                 _logger.LogInformation("Sms sending failed.");
-                return Task.FromResult(new SendSmsResponse { Status = false, ErrorMessage = "Sms sending failed" });
+                return Task.FromResult(new SendSmsResponse { Status = false, ErrorMessage = "Sms sending failed", MessageId = response.Messages.First().MessageId});
             }
 
             _logger.LogInformation("Sms sent successfully");
-            return Task.FromResult(new SendSmsResponse { Status = true });
+            return Task.FromResult(new SendSmsResponse { Status = true, MessageId = response.Messages.First().MessageId});
         }
     }
 }
