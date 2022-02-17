@@ -34,6 +34,7 @@ namespace Service.SmsProviderNexmo.Jobs
                     status = DeliveryStatus.Delivered;
                     break;
                 case "failed":
+                case "expired":
                     status = DeliveryStatus.Failed;
                     break;
                 default:
